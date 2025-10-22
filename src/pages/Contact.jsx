@@ -48,7 +48,7 @@ const Contact = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       ),
-      title: 'Visit Us',
+      title: 'Visit Our Facility',
       details: ['Works/Office: Eastern Bypass, Thakur Nagar', 'Jaleshwari Bazar, Near Begraj Godown', 'Siliguri, Dist.- Jalpaiguri (W.B.)', 'Pin – 734004']
     },
     {
@@ -57,7 +57,7 @@ const Contact = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
       ),
-      title: 'Call Us',
+      title: 'Call Us Directly',
       details: ['+91-7478477611'],
       link: 'tel:+917478477611'
     },
@@ -83,51 +83,58 @@ const Contact = () => {
   ];
 
   return (
-    <div className="pt-20">
-      <section className="relative bg-gradient-to-r from-primary to-secondary text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full filter blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+    <div className="">
+      {/* Hero Section with Background Image */}
+      <section 
+        className="relative bg-cover bg-center bg-no-repeat text-white py-20 overflow-hidden h-[400px] flex items-center"
+        style={{
+          backgroundImage: "linear-gradient(rgba(41, 114, 183, 0.85), rgba(30, 78, 140, 0.85)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"
+        }}
+      >
+        <div className="absolute inset-0">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-white rounded-full filter blur-3xl opacity-10"></div>
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-white rounded-full filter blur-3xl opacity-10"></div>
         </div>
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 animate-fade-in">Get In Touch</h1>
-          <p className="text-xl text-center text-white/90 max-w-3xl mx-auto animate-slide-up">
-            Let's discuss how PRINTECH can bring your labelling vision to life
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">Get In Touch</h1>
+          <p className="text-xl text-center text-white/90 max-w-3xl mx-auto">
+            Let's discuss how PRINTECH can bring your labelling vision to life with precision and excellence
           </p>
         </div>
       </section>
 
+      {/* Contact Information & Form Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="animate-slide-in-left">
+            {/* Contact Information */}
+            <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Our team is ready to assist you with all your label manufacturing needs. Reach out to us through any of the following channels.
+                Our team is ready to assist you with all your label manufacturing needs. Reach out to us through any of the following channels for expert consultation and support.
               </p>
 
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
-                    className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-all duration-300 animate-fade-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-all duration-300 border border-gray-200 hover:border-[#2972B7]/30"
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center text-white flex-shrink-0">
+                      <div className="w-14 h-14 bg-gradient-to-br from-[#2972B7] to-[#1E4E8C] rounded-xl flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                         {info.icon}
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">{info.title}</h3>
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">{info.title}</h3>
                         {info.link ? (
-                          <a href={info.link} className="text-primary hover:text-secondary transition-colors">
+                          <a href={info.link} className="text-[#2972B7] hover:text-[#1E4E8C] transition-colors duration-300">
                             {info.details.map((detail, i) => (
-                              <p key={i} className="text-gray-700">{detail}</p>
+                              <p key={i} className="text-gray-700 mb-1 font-medium">{detail}</p>
                             ))}
                           </a>
                         ) : (
                           info.details.map((detail, i) => (
-                            <p key={i} className="text-gray-700">{detail}</p>
+                            <p key={i} className="text-gray-700 mb-1 font-medium">{detail}</p>
                           ))
                         )}
                       </div>
@@ -135,19 +142,42 @@ const Contact = () => {
                   </div>
                 ))}
               </div>
+
+              {/* Business Hours */}
+              <div className="mt-8 bg-gradient-to-br from-[#2972B7]/5 to-[#1E4E8C]/5 rounded-xl p-6 border border-[#2972B7]/20">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Business Hours</h3>
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-gray-700 font-medium">Monday - Friday:</span>
+                    <span className="text-gray-900 font-semibold">9:00 AM - 6:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700 font-medium">Saturday:</span>
+                    <span className="text-gray-900 font-semibold">9:00 AM - 2:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700 font-medium">Sunday:</span>
+                    <span className="text-gray-900 font-semibold">Closed</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="animate-slide-in-right">
-              <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl p-8">
+            {/* Contact Form */}
+            <div>
+              <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-xl p-8 border border-gray-200">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
 
                 {submitStatus === 'success' && (
-                  <div className="bg-green-50 border border-green-200 text-green-800 rounded-lg p-4 mb-6 animate-slide-up">
-                    <div className="flex items-center space-x-2">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <div className="bg-green-50 border border-green-200 text-green-800 rounded-xl p-4 mb-6 animate-slide-up">
+                    <div className="flex items-center space-x-3">
+                      <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      <span className="font-medium">Message sent successfully! We'll get back to you soon.</span>
+                      <div>
+                        <p className="font-semibold">Message sent successfully!</p>
+                        <p className="text-sm">We'll get back to you within 24 hours.</p>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -164,15 +194,15 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 outline-none"
-                      placeholder="Your name"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2972B7] focus:border-transparent transition-all duration-300 outline-none hover:border-gray-400"
+                      placeholder="Enter your full name"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                        Email *
+                        Email Address *
                       </label>
                       <input
                         type="email"
@@ -181,7 +211,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 outline-none"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2972B7] focus:border-transparent transition-all duration-300 outline-none hover:border-gray-400"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -196,7 +226,7 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 outline-none"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2972B7] focus:border-transparent transition-all duration-300 outline-none hover:border-gray-400"
                         placeholder="+91-XXXXXXXXXX"
                       />
                     </div>
@@ -212,14 +242,14 @@ const Contact = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 outline-none"
-                      placeholder="Your company"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2972B7] focus:border-transparent transition-all duration-300 outline-none hover:border-gray-400"
+                      placeholder="Your company name"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Message *
+                      Project Requirements *
                     </label>
                     <textarea
                       id="message"
@@ -228,23 +258,23 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows="5"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 outline-none resize-none"
-                      placeholder="Tell us about your requirements..."
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2972B7] focus:border-transparent transition-all duration-300 outline-none resize-none hover:border-gray-400"
+                      placeholder="Tell us about your label requirements, quantity, specifications..."
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-gradient-to-r from-[#2972B7] to-[#1E4E8C] text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {isSubmitting ? (
-                      <span className="flex items-center justify-center space-x-2">
+                      <span className="flex items-center justify-center space-x-3">
                         <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        <span>Sending...</span>
+                        <span>Processing Your Request...</span>
                       </span>
                     ) : (
                       'Send Message'
@@ -257,10 +287,18 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Map Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="aspect-w-16 aspect-h-9 h-96">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Visit Our Facility</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Located in the industrial hub of Siliguri for convenient access and efficient service
+            </p>
+          </div>
+          
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+            <div className="h-96 w-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.7789999999997!2d88.43!3d26.71!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDQyJzM2LjAiTiA4OMKwMjUnNDguMCJF!5e0!3m2!1sen!2sin!4v1234567890"
                 width="100%"
@@ -277,33 +315,34 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-[#2972B7] to-[#1E4E8C] text-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Start Your Project?
+              Ready to Start Your Label Project?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Our team is standing by to discuss your label manufacturing needs and provide expert guidance
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Our team is standing by to discuss your label manufacturing needs and provide expert guidance tailored to your requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+917478477611"
-                className="inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl"
+                className="inline-flex items-center justify-center bg-white text-[#2972B7] px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                Call Now
+                Call +91-7478477611
               </a>
               <a
                 href="mailto:printech@printech.ind.in"
-                className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105"
+                className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-[#2972B7] transition-all duration-300 transform hover:scale-105"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                Email Us
+                Email Us Now
               </a>
             </div>
           </div>

@@ -1,3 +1,5 @@
+import React from "react";
+
 const About = () => {
   const values = [
     {
@@ -77,13 +79,19 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-20">
-      <section className="relative bg-gradient-to-r from-primary to-secondary text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>
+    <div className="">
+      {/* Hero Section with Background Image */}
+      <section 
+        className="relative bg-cover bg-center bg-no-repeat text-white py-20 overflow-hidden h-[400px] flex items-center"
+        style={{
+          backgroundImage: "linear-gradient(rgba(41, 114, 183, 0.8), rgba(30, 78, 140, 0.8)), url('https://img.freepik.com/premium-photo/modern-printing-press-utilizing-advanced-ink-technologies-highquality-prints_1314467-203658.jpg?w=1060')"
+        }}
+      >
+        <div className="absolute inset-0">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-white rounded-full filter blur-3xl opacity-10"></div>
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-white rounded-full filter blur-3xl opacity-10"></div>
         </div>
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 animate-fade-in">About PRINTECH</h1>
           <p className="text-xl text-center text-white/90 max-w-3xl mx-auto animate-slide-up">
             Modern label manufacturing company committed to excellence, innovation, and reliability
@@ -103,7 +111,7 @@ const About = () => {
                 <p>
                   Serving a wide range of sectors, our focus lies in delivering precise, high-quality labelling solutions. PRINTECH is committed to setting new benchmarks in reliability, efficiency, and innovation in the field of label production.
                 </p>
-                <p className="font-semibold text-primary italic">
+                <p className="font-semibold text-[#2972B7] italic">
                   At PRINTECH, we believe every label tells a story—and we're here to help you tell yours, beautifully and boldly.
                 </p>
               </div>
@@ -121,7 +129,7 @@ const About = () => {
                 className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#2972B7] to-[#1E4E8C] rounded-xl flex items-center justify-center text-white mb-6">
                   {value.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
@@ -148,7 +156,7 @@ const About = () => {
                 className="flex items-start space-x-6 p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300 animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center text-white flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#2972B7] to-[#1E4E8C] rounded-lg flex items-center justify-center text-white flex-shrink-0">
                   {item.icon}
                 </div>
                 <div>
@@ -161,7 +169,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <section className="py-20 bg-gradient-to-br from-[#2972B7]/5 to-[#9E2991]/5">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose PRINTECH?</h2>
@@ -177,7 +185,7 @@ const About = () => {
                 className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#2972B7] to-[#1E4E8C] rounded-full flex items-center justify-center text-white font-bold text-xl mb-6">
                   {index + 1}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
@@ -190,9 +198,14 @@ const About = () => {
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 lg:p-16 text-white text-center">
+          <div 
+            className="bg-cover bg-center rounded-2xl p-8 lg:p-16 text-white text-center relative overflow-hidden"
+            style={{
+              backgroundImage: "linear-gradient(rgba(41, 114, 183, 0.9), rgba(30, 78, 140, 0.9)), url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"
+            }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Client Relations</h2>
-            <p className="text-lg text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg text-white/90 max-w-4xl mx-auto leading-relaxed mb-8 text-justify">
               At Printech, our clients are at the heart of everything we do. We believe in building long-term partnerships by understanding each client's unique requirements and delivering solutions that perfectly align with their vision. From concept to completion, our team works hand-in-hand with customers to ensure every detail is met with precision, quality, and care. We pride ourselves on timely deliveries, transparent communication, and personalized service that goes beyond expectations. Our dedication to client satisfaction is not just a promise—it is the driving force behind our growth, innovation, and trusted reputation in the label printing industry.
             </p>
           </div>
