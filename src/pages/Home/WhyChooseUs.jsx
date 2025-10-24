@@ -173,7 +173,7 @@ const WhyChooseUs = () => {
         </motion.div>
 
         {/* CTA Section */}
-        <motion.div 
+        {/* <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -201,7 +201,7 @@ const WhyChooseUs = () => {
               </motion.button>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

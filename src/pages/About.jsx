@@ -1,4 +1,5 @@
 import React from "react";
+import WhyChooseUs from "../pages/Home/WhyChooseUs";
 
 const About = () => {
   const values = [
@@ -168,7 +169,7 @@ const About = () => {
           </div>
         </div>
       </section>
-
+{/* 
       <section className="py-20 bg-gradient-to-br from-[#2972B7]/5 to-[#9E2991]/5">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16">
@@ -194,7 +195,9 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <WhyChooseUs />
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">

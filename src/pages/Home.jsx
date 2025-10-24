@@ -14,9 +14,9 @@ function Homepage() {
     <div className="min-h-screen">
       <BannerCarousel />
       <AboutUs />
-      <Services />
-      <Projects />
-      <WhyChooseUs />
+      {/* <Services /> */}
+      {/* <Projects /> */}
+      {/* <WhyChooseUs /> */}
     </div>
   );
 }
