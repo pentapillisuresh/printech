@@ -112,39 +112,41 @@ const Products = () => {
   return (
     <div className="">
       {/* Hero Section */}
-      <section
-        className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden min-h-[600px] flex items-center"
-        style={{
-          backgroundImage: "linear-gradient(rgba(41, 114, 183, 0.88), rgba(30, 78, 140, 0.88)), url('./images/label-manufacturing-banner.jpg')"
-        }}
+    <section
+  className="relative bg-cover bg-center bg-no-repeat text-white py-24 overflow-hidden min-h-[600px] flex items-center"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(41, 114, 183, 0.88), rgba(30, 78, 140, 0.88)), url('./images/bannerimage.png')"
+  }}
+>
+  <div className="absolute inset-0">
+    <div className="absolute top-1/4 -right-20 w-80 h-80 bg-white rounded-full filter blur-3xl opacity-10"></div>
+    <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-white rounded-full filter blur-3xl opacity-10"></div>
+  </div>
+  <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
+    <h1 className="text-5xl md:text-6xl font-bold text-center mb-6 leading-tight">
+      Professional Label Solutions
+    </h1>
+    <p className="text-2xl text-center text-white/95 max-w-4xl mx-auto mb-8 leading-relaxed">
+      Custom Labels for Pharmaceuticals, FMCG, Beverages, Cosmetics & More
+    </p>
+    <div className="flex justify-center space-x-4">
+      <a
+        href="/contact"
+        className="bg-white text-[#2972B7] px-8 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
       >
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 -right-20 w-80 h-80 bg-white rounded-full filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-white rounded-full filter blur-3xl opacity-10"></div>
-        </div>
-        <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-center mb-6 leading-tight">
-            Professional Label Solutions
-          </h1>
-          <p className="text-2xl text-center text-white/95 max-w-4xl mx-auto mb-8 leading-relaxed">
-            Custom Labels for Pharmaceuticals, FMCG, Beverages, Cosmetics & More
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a
-              href="/contact"
-              className="bg-white text-[#2972B7] px-8 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-            >
-              Get Custom Quote
-            </a>
-            <a
-              href="#products"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-[#2972B7] transition-all duration-300"
-            >
-              View Products
-            </a>
-          </div>
-        </div>
-      </section>
+        Get Custom Quote
+      </a>
+      <a
+        href="#products"
+        className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-[#2972B7] transition-all duration-300"
+      >
+        View Products
+      </a>
+    </div>
+  </div>
+</section>
+
 
       {/* Products Section */}
       <section id="products" className="py-20 bg-white">
