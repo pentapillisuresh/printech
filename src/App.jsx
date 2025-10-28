@@ -9,6 +9,7 @@ import Technology from "./pages/Technology";
 import Contact from "./pages/Contact";
 import Whatsapp from "./components/Whatsapp";
 import Call from "./components/Call";
+import Printkem from "./pages/Home/printkem/Home";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         {/* Main content (routes) */}
         <main className="flex-grow">
           <Routes>
+            <Route path="/printkem" element={<Printkem />} />
+
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />

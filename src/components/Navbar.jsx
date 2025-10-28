@@ -8,7 +8,8 @@ import {
   Info,
   FolderOpen,
   Users,
-  Cpu
+  Cpu,
+  Beaker
 } from "lucide-react";
 
 const Navbar = () => {
@@ -30,6 +31,7 @@ const Navbar = () => {
     { id: 'about', label: 'About Us', icon: Info, path: '/about' },
     { id: 'products', label: 'Products & Services', icon: FolderOpen, path: '/products' },
     { id: 'technology', label: 'Technology', icon: Cpu, path: '/technology' },
+    { id: 'printkem', label: 'Printkem', icon: Beaker, path: '/printkem' },
     { id: 'contact', label: 'Contact', icon: Users, path: '/contact' },
   ];
 
@@ -65,7 +67,7 @@ const Navbar = () => {
             />
             <div>
               <h1 className={`text-2xl font-bold transition-colors duration-300 ${
-                isScrolled ? 'text-[#2972B7]' : 'text-white'
+                isScrolled ? 'text-[#A03194]' : 'text-white'
               }`}>
                 PRINTECH
               </h1>
@@ -87,10 +89,10 @@ const Navbar = () => {
                   onClick={() => handleNavigation(item.path)}
                   className={`relative flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                     active
-                      ? 'text-[#2972B7]'
+                      ? 'text-[#A03194]'
                       : isScrolled
-                      ? 'text-gray-700 hover:text-[#2972B7]'
-                      : 'text-white hover:text-[#2972B7]'
+                      ? 'text-gray-700 hover:text-[#A03194]'
+                      : 'text-white hover:text-[#A03194]'
                   }`}
                 >
                   <item.icon className="w-4 h-4" />
@@ -98,7 +100,7 @@ const Navbar = () => {
                   {active && (
                     <motion.div
                       layoutId="underline"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#2972B7] rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#A03194] rounded-full"
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
@@ -144,8 +146,8 @@ const Navbar = () => {
                       onClick={() => handleNavigation(item.path)}
                       className={`flex items-center space-x-2 w-full px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                         active
-                          ? 'text-[#2972B7] bg-gray-100'
-                          : 'text-gray-700 hover:text-[#2972B7] hover:bg-gray-50'
+                          ? 'text-[#A03194] bg-gray-100'
+                          : 'text-gray-700 hover:text-[#A03194] hover:bg-gray-50'
                       }`}
                     >
                       <item.icon className="w-4 h-4" />
