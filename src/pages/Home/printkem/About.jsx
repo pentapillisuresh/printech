@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,7 +17,7 @@ import 'swiper/css/effect-fade';
 
 // ✅ Count-Up Component
 const CountUpNumber = ({ from, to, duration = 2, suffix = "" }) => {
-  const ref = useRef(null);
+  const ref = React.useRef(null);
   const count = useMotionValue(from);
   const rounded = useTransform(count, (latest) => Math.floor(latest));
   const isInView = useInView(ref, { once: true });
@@ -51,8 +51,8 @@ const CountUpNumber = ({ from, to, duration = 2, suffix = "" }) => {
 
 const AboutUs = () => {
   const navigate = useNavigate();
-  const containerRef = useRef(null);
-  const swiperRef = useRef(null);
+  const containerRef = React.useRef(null);
+  const swiperRef = React.useRef(null);
 
   useEffect(() => {
     AOS.init({
@@ -146,6 +146,12 @@ const AboutUs = () => {
     red: { bg: 'bg-red-100', text: 'text-red-600', border: 'border-red-200' }
   };
 
+  // Split logos into rows of 6
+  const rows = [];
+  for (let i = 0; i < clientLogos.length; i += 6) {
+    rows.push(clientLogos.slice(i, i + 6));
+  }
+
   return (
     <div className="bg-white">
       {/* Top Banner Section - Updated Content */}
@@ -232,109 +238,49 @@ const AboutUs = () => {
               </p>
             </div>
 
-            {/* Infinite Scrolling Logos Section - Fixed reverse issue */}
-            <div className="relative overflow-hidden py-6">
-              {/* Gradient Overlays */}
-              <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-              <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
-              
-              {/* First Scrolling Track */}
-              <div className="flex w-max animate-scroll-left">
-                {[...clientLogos, ...clientLogos].map((client, index) => (
-                  <div
-                    key={`first-${index}`}
-                    className="mx-4 flex-shrink-0 w-36 h-28 bg-white border border-gray-200 rounded-xl shadow-sm flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-blue-300"
-                  >
-                    <img
-                      src={client.img}
-                      alt={client.alt}
-                      className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.style.display = 'none';
-                        const fallback = document.createElement('div');
-                        fallback.className = 'text-center';
-                        fallback.innerHTML = `
-                          <div class="text-sm font-bold text-gray-800">${client.name}</div>
-                          <div class="text-xs text-gray-500">${client.alt}</div>
-                        `;
-                        e.target.parentNode.appendChild(fallback);
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Second Scrolling Track - Fixed to avoid reverse issues */}
-              <div className="flex w-max mt-8 animate-scroll-right">
-                {[...clientLogos, ...clientLogos].map((client, index) => (
-                  <div
-                    key={`second-${index}`}
-                    className="mx-4 flex-shrink-0 w-36 h-28 bg-white border border-gray-200 rounded-xl shadow-sm flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-blue-300"
-                  >
-                    <img
-                      src={client.img}
-                      alt={client.alt}
-                      className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.style.display = 'none';
-                        const fallback = document.createElement('div');
-                        fallback.className = 'text-center';
-                        fallback.innerHTML = `
-                          <div class="text-sm font-bold text-gray-800">${client.name}</div>
-                          <div class="text-xs text-gray-500">${client.alt}</div>
-                        `;
-                        e.target.parentNode.appendChild(fallback);
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
+            {/* Fixed Logos Grid - 6 per row */}
+            <div className="space-y-8 py-6">
+              {rows.map((row, rowIndex) => (
+                <div 
+                  key={rowIndex} 
+                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6"
+                >
+                  {row.map((client, index) => (
+                    <div
+                      key={`${rowIndex}-${index}`}
+                      className="h-28 bg-white border border-gray-200 rounded-xl shadow-sm flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-blue-300"
+                    >
+                      <img
+                        src={client.img}
+                        alt={client.alt}
+                        className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.style.display = 'none';
+                          const fallback = document.createElement('div');
+                          fallback.className = 'text-center';
+                          fallback.innerHTML = `
+                            <div class="text-sm font-bold text-gray-800">${client.name}</div>
+                            <div class="text-xs text-gray-500">${client.alt}</div>
+                          `;
+                          e.target.parentNode.appendChild(fallback);
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
 
-            {/* Client Count & Diversity Info */}
-            <div className="mt-12 text-center">
-              <div className="inline-flex items-center gap-4 bg-gray-50 px-6 py-4 rounded-lg">
-                <span className="text-blue-600 font-bold text-lg">✓</span>
-                <span className="text-gray-700">
-                  Serving <span className="font-bold text-blue-600">55+ clients</span> across <span className="font-bold text-blue-600">10+ industries</span>
-                </span>
-              </div>
-            </div>
+          
           </div>
 
-        
-
-         
+       
         </div>
       </section>
 
-      {/* Add custom animations */}
+      {/* Add custom styles */}
       <style jsx>{`
-        @keyframes scroll-left {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        @keyframes scroll-right {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-        .animate-scroll-left {
-          animation: scroll-left 50s linear infinite;
-        }
-        .animate-scroll-right {
-          animation: scroll-right 50s linear infinite;
-        }
-
         /* Swiper Custom Styles */
         .testimonial-swiper {
           padding: 20px 10px 60px !important;
