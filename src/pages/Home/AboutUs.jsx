@@ -1,15 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
+import { motion, useInView, useMotionValue, useTransform } from "framer-motion";
 import "aos/dist/aos.css";
 
-// ✅ Count-Up Component (JSX version)
+// ✅ Count-Up Component
 const CountUpNumber = ({ from, to, duration = 2, suffix = "" }) => {
   const ref = useRef(null);
   const count = useMotionValue(from);
@@ -45,191 +40,187 @@ const CountUpNumber = ({ from, to, duration = 2, suffix = "" }) => {
 
 const AboutUs = () => {
   const navigate = useNavigate();
-  const videoRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 800,
       once: true,
+      easing: 'ease-out-cubic'
     });
   }, []);
 
-  const handleVideoHover = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  };
-
-  const handleVideoLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
-
   return (
-    <section className="py-16 relative overflow-hidden">
-      {/* Background pattern */}
+    <section className="py-20 relative overflow-hidden bg-white" ref={containerRef}>
+      {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute top-0 left-0 w-full h-full"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, #2972B7 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        ></div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, #2563eb 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative">
-        {/* Heading */}
+      {/* Decorative Elements */}
+      <div className=""></div>
+      <div className=""></div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-3 py-1 bg-[#2972B7]/10 text-[#2972B7] rounded-full text-xs font-semibold tracking-wider uppercase mb-3 font-['Roboto']">
-            About Us
+          <span className="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium tracking-wider uppercase mb-6 border border-blue-100">
+            About PRINTECH
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-3 leading-tight tracking-tight font-serif">
-            PRINTECH - Crafting Brand Excellence
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
+            Crafting Brand Excellence Through Precision Labels
           </h1>
-          <div className="w-16 h-0.5 bg-[#2972B7] mx-auto mb-4"></div>
-          <p className="text-[18px] text-gray-600 max-w-2xl mx-auto leading-relaxed font-['Roboto']">
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-6 rounded-full"></div>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
             A modern label manufacturing company equipped with advanced technology 
             that surpasses conventional standards, delivering precise, high-quality labelling solutions.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start mb-16">
-          {/* Left: Video & Stats */}
-          <div
-            className="lg:col-span-3 order-2 lg:order-1 flex flex-col"
-            data-aos="fade-right"
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+          {/* Left: Image */}
+          <motion.div 
+            className="relative group"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            <div 
-              className="relative rounded-lg overflow-hidden shadow-lg group"
-              onMouseEnter={handleVideoHover}
-              onMouseLeave={handleVideoLeave}
-            >
-              <video
-                ref={videoRef}
+            <div className="relative overflow-hidden rounded-xl shadow-lg">
+              <img
+                src="./images/manufacturing-process.jpg"
+                alt="PRINTECH Manufacturing Facility"
                 className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster="./images/video-poster.jpg" // Fallback poster image
-              >
-                <source src="./videos/bg.mp4" type="video/mp4" />
-                <source src="./videos/manufacturing-process.webm" type="video/webm" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-              <div className="absolute top-4 right-4">
-                <div className="bg-black/50 rounded-full p-2 backdrop-blur-sm">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white text-[18px] font-medium font-['Roboto']">
-                  State-of-the-Art Manufacturing Process
-                </p>
-                <p className="text-white/80 text-sm mt-1">Hover to play video</p>
-              </div>
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "./images/about.png";
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+    
             </div>
 
-            {/* Stats Bar */}
-            <div
-              className="grid grid-cols-3 gap-4 mt-6 bg-gradient-to-br from-[#2972B7] to-[#1E4E8C] rounded-lg p-6 shadow-lg"
-              data-aos="fade-up"
-            >
-              <div className="text-center border-r border-white/20 last:border-0">
-                <p className="text-2xl font-bold text-white mb-1 font-serif">
-                  <CountUpNumber from={0} to={8} suffix="+" duration={1.5} />
-                </p>
-                <p className="text-[18px] text-white/80 font-['Roboto']">
-                  Color Printing
-                </p>
-              </div>
-              <div className="text-center border-r border-white/20 last:border-0">
-                <p className="text-2xl font-bold text-white mb-1 font-serif">
-                  <CountUpNumber from={0} to={500} suffix="+" duration={2.5} />
-                </p>
-                <p className="text-[18px] text-white/80 font-['Roboto']">
-                  Clients Served
-                </p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl font-bold text-white mb-1 font-serif">
-                  <CountUpNumber from={0} to={10} suffix="+" duration={2} />
-                </p>
-                <p className="text-[18px] text-white/80 font-['Roboto']">
-                  Industries
-                </p>
-              </div>
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-6 mt-8">
+              <motion.div 
+                className="bg-white rounded-lg p-6 shadow-md border border-gray-100"
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              >
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-gray-900">
+                      <CountUpNumber from={0} to={8} suffix="+" duration={1.5} />
+                    </p>
+                    <p className="text-sm text-gray-600 mt-1">Color Technology</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white rounded-lg p-6 shadow-md border border-gray-100"
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              >
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center mr-3">
+                    <svg className="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-gray-900">
+                      <CountUpNumber from={0} to={55} suffix="+" duration={2} />
+                    </p>
+                    <p className="text-sm text-gray-600 mt-1">Satisfied Clients</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Content */}
-          <div
-            className="lg:col-span-2 order-1 lg:order-2 flex flex-col justify-start space-y-6"
-            data-aos="fade-left"
+          <motion.div 
+            className="space-y-8"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            <div>
-              <h2 className="text-xl font-bold text-[#1a1a1a] mb-4 leading-tight font-serif">
-                Our Mission & Vision
-              </h2>
-              <div className="space-y-4">
-                <p className="text-[18px] text-gray-700 leading-relaxed font-['Roboto']">
-                  At PRINTECH, our mission is to deliver high-quality, customized labels 
-                  with precision and efficiency using advanced technology and our dedicated team's expertise.
-                </p>
-                <p className="text-[18px] text-gray-700 leading-relaxed font-['Roboto']">
-                  We aim to become a trusted and inspiring name in the label printing industry—driven by innovation, 
+            {/* Mission & Vision */}
+            <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-gray-900">Our Mission</h2>
+                  <p className="text-sm text-gray-500 mt-1">Delivering excellence in every label</p>
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                To deliver high-quality, customized labels with precision and efficiency using 
+                advanced technology and our dedicated team's expertise.
+              </p>
+              
+              <div className="border-t border-gray-100 pt-6 mt-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-gray-900">Our Vision</h2>
+                    <p className="text-sm text-gray-500 mt-1">Leading the label industry</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  To become a trusted and inspiring name in the label printing industry—driven by innovation, 
                   rooted in sustainability, and committed to exceptional quality.
                 </p>
               </div>
             </div>
 
             {/* Quote */}
-            <div className="bg-[#2972B7]/10 border-l-4 border-[#2972B7] p-5 mt-4">
-              <blockquote className="text-[18px] text-gray-800 font-medium italic leading-relaxed mb-2 font-['Roboto']">
-                "Every label tells a story—and we're here to help you tell yours, beautifully and boldly."
-              </blockquote>
-              <cite className="text-[18px] text-gray-600 not-italic font-['Roboto']">
-                — PRINTECH Vision
-              </cite>
+            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-100">
+              <div className="flex">
+                <svg className="w-8 h-8 text-blue-400 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <div>
+                  <blockquote className="text-gray-800 italic mb-3">
+                    "Every label tells a story—and we're here to help you tell yours, beautifully and boldly."
+                  </blockquote>
+                  <cite className="text-gray-600 not-italic font-medium">— PRINTECH </cite>
+                </div>
+              </div>
             </div>
 
-            {/* Button */}
+            {/* CTA Button */}
             <motion.button
-              whileHover={{ scale: 1.07 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => navigate("/about")}
-              className="self-start px-6 py-2 bg-[#2972B7] text-white font-semibold rounded-full shadow-md transition-all duration-300 hover:bg-[#1E4E8C]"
+              className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center group"
             >
-              Learn More →
+              <span>Discover Our Journey</span>
+              <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </motion.button>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Technology Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12" data-aos="fade-up">
-          <div className="bg-white rounded-lg p-6 shadow-lg border border-gray-100">
-            <h3 className="text-xl font-bold text-[#2972B7] mb-4 font-serif">Our Technology</h3>
-            <p className="text-gray-700 leading-relaxed font-['Roboto']">
-              8-Colour All UV + IR Flexo Printing Machine with online capabilities for 
-              Punching, Die-Cutting, Cold Foiling, Lamination, and Hologram application.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg p-6 shadow-lg border border-gray-100">
-            <h3 className="text-xl font-bold text-[#9E2991] mb-4 font-serif">Quality Assurance</h3>
-            <p className="text-gray-700 leading-relaxed font-['Roboto']">
-              Fully Automatic Advanced Auto Inspection Machine guaranteeing accuracy 
-              and flawlessness in every label produced.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

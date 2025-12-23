@@ -299,17 +299,18 @@ const Contact = () => {
           
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
             <div className="h-96 w-full">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.8232787832103!2d88.45451647303702!3d26.705454817650264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e44197ae1b8677%3A0xe1bc214d05c0e064!2sEastern%20Bypass%2C%20Thakur%20Nagar%2C%20Shanti%20Nagar%2C%20Siliguri%2C%20West%20Bengal!5e1!3m2!1sen!2sin!4v1761301300420!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="PRINTECH Location - Eastern Bypass, Thakur Nagar, Siliguri"
-                className="w-full h-full"
-              ></iframe>
+            <iframe
+  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2975.0985025664186!2d88.46123887543196!3d26.694915776777737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDQxJzQxLjciTiA4OMKwMjcnNDkuNyJF!5e1!3m2!1sen!2sin!4v1766399525666!5m2!1sen!2sin"
+  width="100%"
+  height="100%"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  title="PRINTECH Location"
+  className="w-full h-full"
+></iframe>
+
             </div>
             <div className="p-6 bg-white">
               <h3 className="text-xl font-bold text-gray-900 mb-2">PRINTECH Facility</h3>

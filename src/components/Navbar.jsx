@@ -31,7 +31,7 @@ const Navbar = () => {
     { id: 'about', label: 'About Us', icon: Info, path: '/about' },
     { id: 'products', label: 'Products & Services', icon: FolderOpen, path: '/products' },
     { id: 'technology', label: 'Technology', icon: Cpu, path: '/technology' },
-    { id: 'printkem', label: 'Printkem', icon: Beaker, path: '/printkem' },
+    { id: 'printkem', label: 'Our Clients', icon: Beaker, path: '/printkem' },
     { id: 'contact', label: 'Contact', icon: Users, path: '/contact' },
   ];
 
@@ -61,7 +61,7 @@ const Navbar = () => {
             onClick={() => handleNavigation('/')}
           >
             <img
-              src="/images/printechlogo.jpeg"
+              src="/images/printech.png"
               alt="Printech Logo"
               className="h-12 w-12 object-contain"
             />

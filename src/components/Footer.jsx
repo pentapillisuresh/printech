@@ -8,7 +8,7 @@ const Footer = ({ setActivePage }) => {
           <div className="animate-fade-in">
             <div className="flex items-center space-x-3 mb-4">
               <img
-              src="/images/printechlogo.jpeg"
+               src="/images/printech.png"
               alt="Printech Logo"
               className="h-12 w-12 object-contain"
             />

@@ -11,6 +11,11 @@
   scroll-behavior: smooth;
 }
 
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 body {
   margin: 0;
     font-family: 'Roboto', Arial, sans-serif;

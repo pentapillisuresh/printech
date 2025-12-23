@@ -10,11 +10,9 @@ import 'aos/dist/aos.css';
 function Home() {
   return (
     <div className="min-h-screen">
-      <BannerCarousel />
+      {/* <BannerCarousel /> */}
       <AboutUs />
-      {/* <Services /> */}
-      {/* <Projects /> */}
-      {/* <WhyChooseUs /> */}
+     
     </div>
   );
 }
