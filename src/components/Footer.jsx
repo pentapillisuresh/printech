@@ -69,10 +69,10 @@ const Footer = ({ setActivePage }) => {
               <li>
                 <span className="text-gray-300 font-medium">GST:</span> 19ABDFP8723B1Z9
               </li>
-              <li>
+              {/* <li>
                 <span className="text-gray-300 font-medium">Partner & GM:</span><br />
                 Mr. Ishan Kumar Choudhary
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

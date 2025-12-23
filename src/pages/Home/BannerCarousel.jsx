@@ -18,7 +18,7 @@ const BannerCarousel = () => {
   const bannerData = [
     {
       id: 1,
-      title: "Welcome to PRINTECH INDUSTRIES",
+      title: "Welcome to PRINTECH",
       subtitle: "Specializing in Leaflet/Inserts & Cut-Labels Manufacturing",
       image: "/images/banner1.png",
       color: "#3B82F6"
