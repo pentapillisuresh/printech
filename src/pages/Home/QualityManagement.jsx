@@ -15,8 +15,8 @@ const QualityManagement = () => {
     {
       id: 1,
       title: "Certification Excellence",
-      description: "BSI certified ISO 9001:2015 quality management system ensuring international standards compliance.",
-      image: "./images/iso.jpg",
+      description: "TNV certified ISO 9001:2015 quality management system ensuring international standards compliance.",
+      image: "./images/iso1.jpg",
       bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -31,15 +31,15 @@ const QualityManagement = () => {
     {
       id: 2,
       title: "Advanced Testing Lab",
-      description: "State-of-the-art laboratory with color matching cabinets, scuff testers, and precision instruments.",
-      image: "./images/quality1.jpeg",
+      description: "Our laboratory features a color matching cabinet, scuff tester (up to 6 PSI), GSM tester, micrometers, and ink kitchen tools",
+      image: "./images/print5.jpeg",
       bgColor: "bg-gradient-to-br from-emerald-50 to-emerald-100",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
         </svg>
       ),
-      stats: "24/7 Testing",
+      stats: "Quality Testing",
       aos: "fade-left",
       badgeColor: "bg-emerald-600 text-white",
       borderColor: "border-emerald-200"
@@ -47,7 +47,7 @@ const QualityManagement = () => {
     {
       id: 3,
       title: "Hygiene & Safety",
-      description: "Cleanroom protocols and strict hygiene standards maintained throughout production process.",
+      description: "A changing room is mandatory before entering the production area, ensuring cleanroom protocols and strict hygiene standards throughout production",
       image: "./images/quality2.jpg",
       bgColor: "bg-gradient-to-br from-violet-50 to-violet-100",
       icon: (
@@ -62,16 +62,16 @@ const QualityManagement = () => {
     },
     {
       id: 4,
-      title: "Quality Assurance",
-      description: "Comprehensive inspection at every production stage with total quality checking.",
-      image: "./images/quality3.jpeg",
+      title: "Quality Assurance & Quality control",
+      description: "Comprehensive inspection at every production stage with total quality checking, controlled raw material and finished goods storage, and regular QC ensuring all finished goods meet client specifications.",
+      image: "./images/quality.jpeg",
       bgColor: "bg-gradient-to-br from-amber-50 to-amber-100",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      stats: "99.8% Quality",
+      stats: "100% Quality",
       aos: "fade-left",
       badgeColor: "bg-amber-600 text-white",
       borderColor: "border-amber-200"
@@ -84,14 +84,14 @@ const QualityManagement = () => {
         
         {/* Header with Brand Emphasis */}
         <div className="text-center mb-14" data-aos="fade-up">
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-2">
               PRINTECH
             </h1>
             <p className="text-lg text-gray-600 font-medium">
               Crafting Brand Excellence
             </p>
-          </div>
+          </div> */}
           
           <div className="inline-block mb-6">
             <span className="inline-block px-6 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold tracking-wider uppercase">
@@ -153,14 +153,14 @@ const QualityManagement = () => {
                   </p>
                   
                   {/* View Details Link */}
-                  <div className="pt-5 border-t border-gray-200/60">
+                  {/* <div className="pt-5 border-t border-gray-200/60">
                     <a href="#" className="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-blue-700 transition-colors duration-300 group/link">
                       <span className="mr-2">View details</span>
                       <svg className="w-4 h-4 transform transition-transform group-hover/link:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -168,11 +168,11 @@ const QualityManagement = () => {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-14" data-aos="fade-up" data-aos-delay="200">
+        {/* <div className="text-center mt-14" data-aos="fade-up" data-aos-delay="200">
           <button className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
             View All Quality Standards
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

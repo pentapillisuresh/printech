@@ -16,28 +16,28 @@ const Features = () => {
       type: "PRE-PRESS",
       title: "PRE-PRESS",
       description: "Designing, advanced colour matching, adaptation, typesetting.",
-      image: "/images/service1.jpeg",
+      image: "/images/image.jpeg",
       color: "#2972B7"
     },
     {
       type: "FLEXOGRAPHIC",
       title: "FLEXOGRAPHIC PRINTING",
       description: "Gallus ECS340 with exceptional quality & cost effective printing.",
-      image: "/images/service2.jpeg",
+      image: "/images/print3.jpeg",
       color: "#1E4E8C"
     },
     {
       type: "OFFSET",
       title: "OFFSET PRINTING",
       description: "Komori Lithrone HUV conventional and non-conventional sheet-fed offset.",
-      image: "/images/service3.jpeg",
+      image: "/images/print6.png",
       color: "#2972B7"
     },
     {
       type: "POST-PRESS",
       title: "POST-PRESS",
       description: "Aqueous & UV coating, embossing, hot foiling, wet & thermal lamination, book-making, CREO Smart Foiling Machine etc.",
-      image: "/images/service4.jpeg",
+      image: "/images/print4.jpeg",
       color: "#1E4E8C"
     }
   ];
@@ -121,7 +121,7 @@ const Features = () => {
                     </p>
                     
                     {/* Learn More Button */}
-                    <button className="
+                    {/* <button className="
                       w-full py-2
                       text-white text-xs font-semibold uppercase tracking-wider
                       rounded-lg
@@ -141,7 +141,7 @@ const Features = () => {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -165,7 +165,7 @@ const Features = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-16 bg-gradient-to-r from-[#2972B7]/10 to-[#1E4E8C]/10 rounded-2xl p-8">
+        {/* <div className="mt-16 bg-gradient-to-r from-[#2972B7]/10 to-[#1E4E8C]/10 rounded-2xl p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#2972B7] to-[#1E4E8C] bg-clip-text text-transparent">
@@ -175,7 +175,7 @@ const Features = () => {
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#2972B7] to-[#1E4E8C] bg-clip-text text-transparent">
-                99.8%
+                100%
               </div>
               <div className="text-gray-600 mt-2">Print Accuracy</div>
             </div>
@@ -192,7 +192,7 @@ const Features = () => {
               <div className="text-gray-600 mt-2">Quality Checked</div>
             </div>
           </div>
-        </div>
+        </div> */}
 
        
       </div>

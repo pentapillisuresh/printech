@@ -71,7 +71,7 @@ const AboutUs = () => {
             About PRINTECH
           </span>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
-            Crafting Brand Excellence Through Precision Labels
+            specializing in manufacturing high-quality Labels for various industries
           </h1>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-6 rounded-full"></div>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">

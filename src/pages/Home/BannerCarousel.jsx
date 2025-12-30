@@ -19,21 +19,21 @@ const BannerCarousel = () => {
     {
       id: 1,
       title: "Welcome to PRINTECH",
-      subtitle: "Specializing in Leaflet/Inserts & Cut-Labels Manufacturing",
+      subtitle: "Crafting Brand Excellence Through Precision Labels Since 2019",
       image: "/images/banner1.png",
       color: "#3B82F6"
     },
     {
       id: 2,
       title: "Complete In-House Facilities",
-      subtitle: "Achieving Superior Quality Through Better Facilities Since 2019",
+      subtitle: "With advanced printing technology and commitment to sustainability",
       image: "/images/banner2.png",
       color: "#10B981"
     },
     {
       id: 3,
       title: "Your Trusted Printing Partner",
-      subtitle: "Delivering Impeccable and Fast Service Across India",
+      subtitle: "Delivering Impeccable and Fast Service Across India and abroad",
       image: "/images/banner3.png",
       color: "#F59E0B"
     },
@@ -335,56 +335,100 @@ const BannerCarousel = () => {
               backfaceVisibility: "hidden"
             }}
           >
-            {/* Content - Keeping original text and buttons */}
+            {/* Content - Using Hero component style */}
             <div className="relative z-30 h-full flex items-center justify-center">
               <div 
                 ref={el => contentRefs.current[index] = el}
-                className="text-center px-4 max-w-5xl mx-auto"
+                className="text-center px-4 max-w-6xl mx-auto mt-12"
               >
-                {/* Title - Original style */}
-                <h1
-                  style={{ color: "white", fontFamily: "serif" }}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight"
-                >
-                  {banner.title}
-                </h1>
-
-                {/* Subtitle - Original style */}
-                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-white/90 mb-6 leading-relaxed drop-shadow-lg">
-                  {banner.subtitle}
-                </p>
-
-                {/* Buttons - Original buttons with same styling */}
-                <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
-                  {/* Products Button */}
-                  <button
-                    onClick={() => navigate("/products")}
-                    className="group relative bg-gradient-to-r from-blue-500 to-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg backdrop-blur-sm flex items-center gap-2 overflow-hidden border border-blue-400 hover:border-blue-300 hover:scale-105 active:scale-95 text-sm"
+                <div className="space-y-4 md:space-y-6">
+                  {/* Main Title - Hero style */}
+                  <h1 
+                    className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none"
+                    style={{
+                      fontFamily: "'Montserrat', sans-serif",
+                      fontWeight: 900,
+                      letterSpacing: '0.02em',
+                      textTransform: 'uppercase',
+                      color: 'white',
+                      textShadow: `
+                        0 2px 20px rgba(0,0,0,0.9),
+                        0 0 30px ${banner.color}40,
+                        0 0 60px ${banner.color}20
+                      `
+                    }}
                   >
-                    <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-all duration-300 transform group-hover:scale-110" />
-                    <Heart size={16} className="relative z-10 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="relative z-10">Our Products</span>
-                  </button>
+                    {banner.title}
+                  </h1>
 
-                  {/* Get Quote Button */}
-                  <button
-                    onClick={openQuoteModal}
-                    className="group relative bg-gradient-to-r from-green-500 to-green-600 text-white px-5 py-2.5 rounded-full font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg backdrop-blur-sm flex items-center gap-2 overflow-hidden border border-green-400 hover:border-green-300 hover:scale-105 active:scale-95 text-sm"
-                  >
-                    <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-all duration-300 transform group-hover:scale-110" />
-                    <Calendar size={16} className="relative z-10 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="relative z-10">Get Quote</span>
-                  </button>
+                  {/* Subtitle - Hero style */}
+                  <div className="relative inline-block max-w-2xl mx-auto">
+                    <h2 
+                      className="text-sm sm:text-base md:text-xl lg:text-2xl font-normal tracking-[0.08em] leading-relaxed px-6 py-3"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 400,
+                        color: 'rgba(255, 255, 255, 0.95)',
+                        background: 'rgba(0,0,0,0.4)',
+                        backdropFilter: 'blur(8px)',
+                        borderRadius: '4px',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        lineHeight: '1.6'
+                      }}
+                    >
+                      {banner.subtitle}
+                    </h2>
+                    
+                    {/* Corner accents */}
+                    <div className="absolute -top-1 -left-1 w-2 h-2 border-t border-l" style={{ borderColor: banner.color }}></div>
+                    <div className="absolute -top-1 -right-1 w-2 h-2 border-t border-r" style={{ borderColor: banner.color }}></div>
+                    <div className="absolute -bottom-1 -left-1 w-2 h-2 border-b border-l" style={{ borderColor: banner.color }}></div>
+                    <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r" style={{ borderColor: banner.color }}></div>
+                  </div>
 
-                  {/* Contact Us Button */}
-                  <button
-                    onClick={() => navigate("/contact")}
-                    className="group relative bg-gradient-to-r from-purple-500 to-purple-600 text-white px-5 py-2.5 rounded-full font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 shadow-lg backdrop-blur-sm flex items-center gap-2 overflow-hidden border border-purple-400 hover:border-purple-300 hover:scale-105 active:scale-95 text-sm"
-                  >
-                    <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-all duration-300 transform group-hover:scale-110" />
-                    <HandHeart size={16} className="relative z-10 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="relative z-10">Contact Us</span>
-                  </button>
+                  {/* Decorative Line */}
+                  <div className="relative h-px w-48 md:w-64 mx-auto">
+                    <div 
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(90deg, transparent, ${banner.color}, transparent)`,
+                        boxShadow: `0 0 15px ${banner.color}`
+                      }}
+                    ></div>
+                  </div>
+
+                  {/* Buttons - Keep original buttons */}
+                  <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 pt-6">
+                    {/* Products Button */}
+                    <button
+                      onClick={() => navigate("/products")}
+                      className="group relative bg-gradient-to-r from-blue-500 to-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg backdrop-blur-sm flex items-center gap-2 overflow-hidden border border-blue-400 hover:border-blue-300 hover:scale-105 active:scale-95 text-sm"
+                    >
+                      <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-all duration-300 transform group-hover:scale-110" />
+                      <Heart size={16} className="relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="relative z-10">Our Products</span>
+                    </button>
+
+                    {/* Get Quote Button */}
+                    <button
+                      onClick={openQuoteModal}
+                      className="group relative bg-gradient-to-r from-green-500 to-green-600 text-white px-5 py-2.5 rounded-full font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg backdrop-blur-sm flex items-center gap-2 overflow-hidden border border-green-400 hover:border-green-300 hover:scale-105 active:scale-95 text-sm"
+                    >
+                      <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-all duration-300 transform group-hover:scale-110" />
+                      <Calendar size={16} className="relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="relative z-10">Get Quote</span>
+                    </button>
+
+                    {/* Contact Us Button */}
+                    <button
+                      onClick={() => navigate("/contact")}
+                      className="group relative bg-gradient-to-r from-purple-500 to-purple-600 text-white px-5 py-2.5 rounded-full font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 shadow-lg backdrop-blur-sm flex items-center gap-2 overflow-hidden border border-purple-400 hover:border-purple-300 hover:scale-105 active:scale-95 text-sm"
+                    >
+                      <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-all duration-300 transform group-hover:scale-110" />
+                      <HandHeart size={16} className="relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                      <span className="relative z-10">Contact Us</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -429,7 +473,7 @@ const BannerCarousel = () => {
                   )}
                 </div>
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap bg-black/80 backdrop-blur-sm px-2 py-1 rounded">
-                  {index + 1}
+                  {bannerData[index].title.split(' ')[0]}
                 </div>
               </button>
             ))}
@@ -477,7 +521,7 @@ const BannerCarousel = () => {
             <span className="text-white/30">{String(bannerData.length).padStart(2, "0")}</span>
           </div>
           <div className="text-xs md:text-sm font-light text-white/60 mt-1" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Slide {currentSlide + 1}
+            {bannerData[currentSlide].title.split(' ')[0]}
           </div>
         </div>
 

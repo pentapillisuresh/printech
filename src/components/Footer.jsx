@@ -18,14 +18,14 @@ const Footer = ({ setActivePage }) => {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Modern label manufacturing with advanced technology, delivering precise and high-quality labelling solutions since 2024.
+              Modern label manufacturing with advanced technology, delivering precise and high-quality labelling solutions since 2019.
             </p>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {['Home', 'About Us', 'Products & Services', 'Technology', 'Contact'].map((item, index) => (
+              {['Home', 'About Us', 'Products & Services', 'Technology','ourClients', 'Contact'].map((item, index) => (
                 <li key={index}>
                   <button
                     onClick={() => setActivePage(item.toLowerCase().replace(/ & /g, '').replace(/ /g, ''))}
@@ -79,7 +79,7 @@ const Footer = ({ setActivePage }) => {
 
         <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            &copy; {currentYear} PRINTECH. All rights reserved. | Crafting Brand Excellence Since 2024
+            &copy; {currentYear} PRINTECH. All rights reserved. | Crafting Brand Excellence Since 2019
           </p>
         </div>
       </div>

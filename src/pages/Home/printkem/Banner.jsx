@@ -19,21 +19,21 @@ const BannerCarousel = () => {
     {
       id: 1,
       title: "Welcome to PRINTECH",
-      subtitle: "Specializing in Leaflet/Inserts & Cut-Labels Manufacturing",
+      subtitle: "Crafting Brand Excellence Through Precision Labels Since 2019",
       image: "./images/banner1.jpg",
       color: "#3B82F6"
     },
     {
       id: 2,
       title: "Complete In-House Facilities",
-      subtitle: "Achieving Superior Quality Through Better Facilities Since 2019",
+      subtitle: "With advanced printing technology and commitment to sustainability",
       image: "./images/banner2.jpeg",
       color: "#10B981"
     },
     {
       id: 3,
       title: "Your Trusted Printing Partner",
-      subtitle: "Delivering Impeccable and Fast Service Across India",
+      subtitle: "Delivering Impeccable and Fast Service Across India and aboard",
       image: "./images/banner3.jpeg",
       color: "#F59E0B"
     },
@@ -45,15 +45,15 @@ const BannerCarousel = () => {
   // Initialize GSAP and create strips
   useGSAP(() => {
     // Initial setup
-    gsap.set(slidesRef.current, { 
-      opacity: 0, 
+    gsap.set(slidesRef.current, {
+      opacity: 0,
       visibility: "hidden",
       pointerEvents: "none"
     });
-    
+
     // Show first slide
-    gsap.set(slidesRef.current[0], { 
-      opacity: 1, 
+    gsap.set(slidesRef.current[0], {
+      opacity: 1,
       visibility: "visible",
       pointerEvents: "auto"
     });
@@ -68,7 +68,7 @@ const BannerCarousel = () => {
         // Create a master container that will hold all strips
         const stripsMaster = document.createElement("div");
         stripsMaster.className = "strips-master absolute inset-0 z-0 overflow-hidden";
-        
+
         // Create individual strips container
         const stripsContainer = document.createElement("div");
         stripsContainer.className = "strip-container absolute inset-0 flex";
@@ -80,7 +80,7 @@ const BannerCarousel = () => {
 
         // Calculate strip width with 0.1% overlap to eliminate gaps
         const stripWidth = 100 / STRIP_COUNT;
-        
+
         // Create strips
         for (let i = 0; i < STRIP_COUNT; i++) {
           const strip = document.createElement("div");
@@ -93,7 +93,7 @@ const BannerCarousel = () => {
             -webkit-backface-visibility: hidden;
             will-change: transform;
           `;
-          
+
           // Create inner container for the image
           const innerContainer = document.createElement("div");
           innerContainer.className = "strip-inner absolute inset-0";
@@ -102,7 +102,7 @@ const BannerCarousel = () => {
             left: -${(i * 100)}%;
             transform: translateZ(0);
           `;
-          
+
           // Create and set up image
           const img = document.createElement("img");
           img.src = bannerData[slideIndex]?.image || "";
@@ -115,28 +115,28 @@ const BannerCarousel = () => {
             image-rendering: crisp-edges;
             image-rendering: -webkit-optimize-contrast;
           `;
-          
+
           // Load image first to prevent flickering
           const tempImg = new Image();
           tempImg.src = bannerData[slideIndex]?.image || "";
           tempImg.onload = () => {
             gsap.set(img, { opacity: 1 });
           };
-          
+
           innerContainer.appendChild(img);
           strip.appendChild(innerContainer);
           stripsContainer.appendChild(strip);
         }
-        
+
         stripsMaster.appendChild(stripsContainer);
         slide.prepend(stripsMaster);
-        
+
         // Store reference
         if (!stripContainersRef.current[slideIndex]) {
           stripContainersRef.current[slideIndex] = [];
         }
         stripContainersRef.current[slideIndex] = Array.from(stripsContainer.children);
-        
+
         // Set initial state for strips
         gsap.set(stripContainersRef.current[slideIndex], {
           y: "0%",
@@ -155,13 +155,13 @@ const BannerCarousel = () => {
   // Animate slide in (pieces falling into place)
   const animateSlideIn = (slideIndex) => {
     if (!stripContainersRef.current[slideIndex] || !slidesRef.current[slideIndex]) return;
-    
+
     setIsAnimating(true);
-    
+
     const tl = gsap.timeline({
       onStart: () => {
-        gsap.set(slidesRef.current[slideIndex], { 
-          opacity: 1, 
+        gsap.set(slidesRef.current[slideIndex], {
+          opacity: 1,
           visibility: "visible",
           pointerEvents: "auto"
         });
@@ -178,13 +178,13 @@ const BannerCarousel = () => {
 
     // Animate strips in from top with staggered delay
     const centerIndex = Math.floor(STRIP_COUNT / 2);
-    
+
     stripContainersRef.current[slideIndex].forEach((strip, i) => {
       const distanceFromCenter = Math.abs(i - centerIndex);
       const delay = distanceFromCenter * 0.03;
-      
+
       const xOffset = (i - centerIndex) * 0.5;
-      
+
       tl.to(strip, {
         y: "0%",
         x: `${xOffset}%`,
@@ -223,9 +223,9 @@ const BannerCarousel = () => {
   // Animate slide out (pieces separating)
   const animateSlideOut = (slideIndex, direction = "down") => {
     if (!stripContainersRef.current[slideIndex]) return;
-    
+
     const tl = gsap.timeline();
-    
+
     // Animate content out first
     if (contentRefs.current[slideIndex]) {
       tl.to(contentRefs.current[slideIndex], {
@@ -238,13 +238,13 @@ const BannerCarousel = () => {
 
     // Animate strips out with outward movement
     const centerIndex = Math.floor(STRIP_COUNT / 2);
-    
+
     stripContainersRef.current[slideIndex].forEach((strip, i) => {
       const distanceFromCenter = Math.abs(i - centerIndex);
       const delay = distanceFromCenter * 0.02;
       const yOffset = direction === "down" ? "110%" : "-110%";
       const xOffset = (i - centerIndex) * 2;
-      
+
       tl.to(strip, {
         y: yOffset,
         x: `${xOffset}%`,
@@ -269,11 +269,11 @@ const BannerCarousel = () => {
   // Handle slide transition
   const goToSlide = async (nextIndex) => {
     if (isAnimating || nextIndex === currentSlide) return;
-    
+
     setIsAnimating(true);
-    
+
     const direction = nextIndex > currentSlide ? "down" : "up";
-    
+
     // Create master timeline
     const masterTl = gsap.timeline({
       onComplete: () => {
@@ -284,7 +284,7 @@ const BannerCarousel = () => {
 
     // Animate current slide out
     masterTl.add(animateSlideOut(currentSlide, direction));
-    
+
     // Animate next slide in
     masterTl.add(animateSlideIn(nextIndex), 0.5);
   };
@@ -307,7 +307,7 @@ const BannerCarousel = () => {
         nextSlide();
       }
     }, 5000);
-    
+
     return () => clearInterval(interval);
   }, [currentSlide, isAnimating]);
 
@@ -316,7 +316,7 @@ const BannerCarousel = () => {
 
   return (
     <>
-      <section 
+      <section
         ref={containerRef}
         className="relative min-h-screen text-white overflow-hidden bg-black"
         style={{
@@ -337,7 +337,7 @@ const BannerCarousel = () => {
           >
             {/* Content - Keeping original text and buttons */}
             <div className="relative z-30 h-full flex items-center justify-center">
-              <div 
+              <div
                 ref={el => contentRefs.current[index] = el}
                 className="text-center px-4 max-w-5xl mx-auto"
               >
@@ -391,9 +391,9 @@ const BannerCarousel = () => {
 
             {/* Overlay gradient */}
             <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/70 via-transparent to-black/70"></div>
-            
+
             {/* Color tint */}
-            <div 
+            <div
               className="absolute inset-0 z-10 opacity-15"
               style={{
                 background: `linear-gradient(135deg, ${banner.color}20 0%, transparent 50%)`,
@@ -413,13 +413,12 @@ const BannerCarousel = () => {
                 disabled={isAnimating}
                 className="relative group"
               >
-                <div className={`w-8 h-1 rounded-full transition-all duration-300 ${
-                  index === currentSlide 
-                    ? "bg-white" 
+                <div className={`w-8 h-1 rounded-full transition-all duration-300 ${index === currentSlide
+                    ? "bg-white"
                     : "bg-white/30 hover:bg-white/50"
-                } ${isAnimating ? "opacity-50" : ""}`}>
+                  } ${isAnimating ? "opacity-50" : ""}`}>
                   {index === currentSlide && (
-                    <div 
+                    <div
                       className="absolute inset-0 rounded-full"
                       style={{
                         background: `linear-gradient(90deg, transparent, ${bannerData[currentSlide].color}, transparent)`,
@@ -440,9 +439,8 @@ const BannerCarousel = () => {
         <button
           onClick={prevSlide}
           disabled={isAnimating}
-          className={`absolute left-4 md:left-6 top-1/2 transform -translate-y-1/2 z-40 transition-all duration-300 ${
-            isAnimating ? "opacity-40 cursor-not-allowed" : "opacity-100 hover:scale-110"
-          }`}
+          className={`absolute left-4 md:left-6 top-1/2 transform -translate-y-1/2 z-40 transition-all duration-300 ${isAnimating ? "opacity-40 cursor-not-allowed" : "opacity-100 hover:scale-110"
+            }`}
           aria-label="Previous slide"
         >
           <div className="relative">
@@ -456,9 +454,8 @@ const BannerCarousel = () => {
         <button
           onClick={nextSlide}
           disabled={isAnimating}
-          className={`absolute right-4 md:right-6 top-1/2 transform -translate-y-1/2 z-40 transition-all duration-300 ${
-            isAnimating ? "opacity-40 cursor-not-allowed" : "opacity-100 hover:scale-110"
-          }`}
+          className={`absolute right-4 md:right-6 top-1/2 transform -translate-y-1/2 z-40 transition-all duration-300 ${isAnimating ? "opacity-40 cursor-not-allowed" : "opacity-100 hover:scale-110"
+            }`}
           aria-label="Next slide"
         >
           <div className="relative">
@@ -483,7 +480,7 @@ const BannerCarousel = () => {
 
         {/* Grid Overlay */}
         <div className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none">
-          <div 
+          <div
             className="absolute inset-0"
             style={{
               backgroundImage: `linear-gradient(90deg, transparent 49.5%, rgba(255,255,255,0.3) 50%, transparent 50.5%),

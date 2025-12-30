@@ -112,23 +112,23 @@ const AboutUs = () => {
 
   // Client logos data - Updated with your logo references
   const clientLogos = [
+    { name: "AIA Engineering", alt: "AIA Engineering", img: "/images/client13.png" },
+    { name: "Eveready", alt: "Eveready", img: "/images/client11.png" },
     { name: "AP Tourism", alt: "AP Tourism", img: "/images/logo1.jpg" },
     { name: "BSNL", alt: "BSNL", img: "/images/client2.png" },
     { name: "IKEA", alt: "IKEA", img: "/images/client3.png" },
     { name: "Cipla", alt: "Cipla", img: "/images/client4.png" },
+    { name: "Senco", alt: "Senco Gold & Diamonds", img: "/images/client8.png" },
     { name: "MAGIK", alt: "Magik Lifting Solutions", img: "/images/client5.png" },
     { name: "LEO", alt: "Leo Lifting Solutions", img: "/images/client6.png" },
     { name: "Orient Electric", alt: "Orient Electric", img: "/images/client7.png" },
-    { name: "Senco", alt: "Senco Gold & Diamonds", img: "/images/client8.png" },
     { name: "Godrej", alt: "Godrej", img: "/images/client9.png" },
     { name: "Goodwyn", alt: "Goodwyn Tea", img: "/images/client10.jpg" },
-    { name: "Eveready", alt: "Eveready", img: "/images/client11.png" },
+    { name: "Pidilite", alt: "Pidilite Industries", img: "/images/client17.jpeg" },
     { name: "Bata", alt: "Bata", img: "/images/client12.png" },
-    { name: "AIA Engineering", alt: "AIA Engineering", img: "/images/client13.png" },
     { name: "RSPL", alt: "RSPL Group", img: "/images/client14.png" },
     { name: "Parle", alt: "Parle Products", img: "/images/client15.png" },
     { name: "Britannia", alt: "Britannia Industries", img: "/images/client16.png" },
-    { name: "Pidilite", alt: "Pidilite Industries", img: "/images/client17.jpeg" },
     { name: "Asian Paints", alt: "Asian Paints", img: "/images/client18.png" },
     { name: "Hindustan Unilever", alt: "Hindustan Unilever", img: "/images/client19.jpg" },
     { name: "Brand 20", alt: "Brand 20", img: "/images/client20.png" },
@@ -180,7 +180,6 @@ const AboutUs = () => {
               transition={{ duration: 0.8 }}
               className="text-white max-w-2xl"
             >
-            
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                 Your Trusted Partner in Label Manufacturing
               </h1>
@@ -197,29 +196,6 @@ const AboutUs = () => {
       {/* Main Content Section */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          {/* Stats Section */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16 justify-center">
-            <div className="text-center p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow duration-300">
-              <p className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
-                <CountUpNumber from={0} to={8} suffix="+" duration={1.5} />
-              </p>
-              <p className="text-gray-600 font-medium">Color Printing</p>
-            </div>
-            <div className="text-center p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow duration-300">
-              <p className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
-                <CountUpNumber from={0} to={55} suffix="+" duration={2} />
-              </p>
-              <p className="text-gray-600 font-medium">Clients Served</p>
-            </div>
-         
-            <div className="text-center p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow duration-300">
-              <p className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
-                <CountUpNumber from={0} to={7} suffix="+" duration={2.2} />
-              </p>
-              <p className="text-gray-600 font-medium">Years Experience</p>
-            </div>
-          </div>
-
           {/* Trusted By Section - Updated Heading */}
           <div className="mb-20">
             <div className="text-center mb-12">
@@ -238,30 +214,32 @@ const AboutUs = () => {
               </p>
             </div>
 
-            {/* Fixed Logos Grid - 6 per row */}
+            {/* Fixed Logos Grid - 6 per row - REMOVED GRAYSCALE */}
             <div className="space-y-8 py-6">
               {rows.map((row, rowIndex) => (
                 <div 
                   key={rowIndex} 
                   className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6"
+                  data-aos="fade-up"
+                  data-aos-delay={rowIndex * 100}
                 >
                   {row.map((client, index) => (
                     <div
                       key={`${rowIndex}-${index}`}
-                      className="h-28 bg-white border border-gray-200 rounded-xl shadow-sm flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-blue-300"
+                      className="h-28 bg-white border border-gray-200 rounded-xl shadow-sm flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-blue-300 group"
                     >
                       <img
                         src={client.img}
                         alt={client.alt}
-                        className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                        className="w-full h-full object-contain transition-all duration-300 group-hover:brightness-110 group-hover:contrast-110"
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.style.display = 'none';
                           const fallback = document.createElement('div');
-                          fallback.className = 'text-center';
+                          fallback.className = 'text-center p-4';
                           fallback.innerHTML = `
-                            <div class="text-sm font-bold text-gray-800">${client.name}</div>
-                            <div class="text-xs text-gray-500">${client.alt}</div>
+                            <div class="text-lg font-bold text-blue-600 mb-1">${client.name}</div>
+                            <div class="text-sm text-gray-500">${client.alt}</div>
                           `;
                           e.target.parentNode.appendChild(fallback);
                         }}
@@ -272,10 +250,43 @@ const AboutUs = () => {
               ))}
             </div>
 
-          
+            {/* Client Satisfaction Note */}
+            <div className="text-center mt-12 pt-8 border-t border-gray-200">
+              <p className="text-lg text-gray-600 italic">
+                "Building lasting partnerships with industry leaders through quality and innovation"
+              </p>
+            </div>
           </div>
 
-       
+          {/* Stats Section */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16 justify-center">
+            <div className="text-center p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-white to-blue-50"
+                 data-aos="fade-up" data-aos-delay="100">
+              <p className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+                <CountUpNumber from={0} to={4} suffix="+" duration={1.5} />
+              </p>
+              <p className="text-gray-600 font-medium">Color Printing</p>
+              <p className="text-sm text-gray-500 mt-1">Premium Quality</p>
+            </div>
+            <div className="text-center p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-white to-green-50"
+                 data-aos="fade-up" data-aos-delay="200">
+              <p className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+                <CountUpNumber from={0} to={55} suffix="+" duration={2} />
+              </p>
+              <p className="text-gray-600 font-medium">Clients Served</p>
+              <p className="text-sm text-gray-500 mt-1">Across India</p>
+            </div>
+            <div className="text-center p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow duration-300 bg-gradient-to-br from-white to-purple-50"
+                 data-aos="fade-up" data-aos-delay="300">
+              <p className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
+                <CountUpNumber from={0} to={7} suffix="+" duration={2.2} />
+              </p>
+              <p className="text-gray-600 font-medium">Years Experience</p>
+              <p className="text-sm text-gray-500 mt-1">Industry Expertise</p>
+            </div>
+          </div>
+
+        
         </div>
       </section>
 
@@ -313,6 +324,16 @@ const AboutUs = () => {
         .swiper-slide-active {
           opacity: 1;
           transform: scale(1);
+        }
+
+        /* Logo hover effects */
+        .logo-container {
+          transition: all 0.3s ease;
+        }
+
+        .logo-container:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
       `}</style>
     </div>
