@@ -75,7 +75,7 @@ const About = () => {
     },
     {
       year: "2020",
-      title: "Pharma Expansion",
+      title: "Pharma Client Services",
       achievements: [
         "Added Pile Feeder Folding Machine",
         "Specialized in Pharma Pack Inserts & Leaflets"
@@ -163,7 +163,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who Are We?</h2>
             <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
               <p>
-                PRINTECH, formerly known as PRINTKEM INDUSTRIES, is a modern label manufacturing company established in 2019 in Siliguri, West Bengal. We specialize in high-quality label production using advanced German technology and innovative printing solutions.
+                PRINTECH is a modern label manufacturing company established in 2019 in Siliguri, West Bengal. We specialize in high-quality label production using advanced German technology and innovative printing solutions.
               </p>
               <p>
                 From our inception in 2019 to our current vision for 2025, we have consistently expanded our capabilities, embraced new technologies, and grown our market presence across multiple countries.

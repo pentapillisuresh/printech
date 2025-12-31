@@ -70,7 +70,7 @@ const AboutUs = () => {
           <span className="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium tracking-wider uppercase mb-6 border border-blue-100">
             About PRINTECH
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
+          <h1 className="first-letter:uppercase text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
             specializing in manufacturing high-quality Labels for various industries
           </h1>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-6 rounded-full"></div>
